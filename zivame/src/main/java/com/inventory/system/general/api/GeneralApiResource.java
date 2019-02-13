@@ -1,4 +1,4 @@
-package com.zimave.assignment.zivame.general.api;
+package com.inventory.system.general.api;
 
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
@@ -12,7 +12,7 @@ public class GeneralApiResource {
 	@GET
 	@Produces("application/json")
 	public String getHomePage(){
-		return "{'message': 'Welcome To Zivame'}";
+		return "{'message': 'Welcome'}";
 	}
 	
 }
