@@ -1,4 +1,4 @@
-package com.zimave.assignment.zivame;
+package com.inventory.system;
 
 
 import javax.servlet.Servlet;
@@ -8,9 +8,9 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurationSupport;
 
+import com.inventory.system.support.util.ResponseCorsFilter;
 import com.sun.jersey.api.core.PackagesResourceConfig;
 import com.sun.jersey.spi.spring.container.servlet.SpringServlet;
-import com.zimave.assignment.zivame.support.util.ResponseCorsFilter;
 
 @Configuration
 public class WebXmlConfiguration extends WebMvcConfigurationSupport {
@@ -24,7 +24,7 @@ public class WebXmlConfiguration extends WebMvcConfigurationSupport {
         jerseyServletRegistration.addUrlMappings("/*");
         jerseyServletRegistration.setName("jersey-servlet");
         jerseyServletRegistration.setLoadOnStartup(1);
-        jerseyServletRegistration.addInitParameter(PackagesResourceConfig.PROPERTY_PACKAGES, "com.zimave.assignment.zivame");
+        jerseyServletRegistration.addInitParameter(PackagesResourceConfig.PROPERTY_PACKAGES, "com.inventory.system");
         jerseyServletRegistration.addInitParameter("com.sun.jersey.api.json.POJOMappingFeature", "true");
         jerseyServletRegistration.addInitParameter("com.sun.jersey.spi.container.ContainerResponseFilters",
                 ResponseCorsFilter.class.getName());

@@ -1,4 +1,4 @@
-package com.zimave.assignment.zivame.support.serialization;
+package com.inventory.system.support.serialization;
 
 import java.util.Collection;
 

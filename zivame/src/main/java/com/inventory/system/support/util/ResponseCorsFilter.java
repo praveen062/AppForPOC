@@ -1,4 +1,4 @@
-package com.zimave.assignment.zivame.support.util;
+package com.inventory.system.support.util;
 
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.Response.ResponseBuilder;
