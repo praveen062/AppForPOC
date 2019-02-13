@@ -2,28 +2,35 @@ package com.inventory.system.support.serialization;
 
 import java.util.Collection;
 
+import org.springframework.context.annotation.ComponentScan;
+
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
-public class JsonSerializationUsingGoogleGson<T> {
-	  private final Gson gson;
+@ComponentScan
+public class JsonSerializationUsingGoogleGson<T> implements JsonSerializationUsingGoogleGsonService{
+	private final Gson gson;
 
-	    public JsonSerializationUsingGoogleGson() {
-	        final GsonBuilder builder = new GsonBuilder();
-	        builder.setPrettyPrinting();
+	public JsonSerializationUsingGoogleGson() {
+		final GsonBuilder builder = new GsonBuilder();
+		builder.setPrettyPrinting();
 
-	        this.gson = builder.create();
-	    }
+		this.gson = builder.create();
+	}
 
-	    public String serialize(final Object result) {
-	        return this.gson.toJson(result);
-	    }
-	    
-	    public String serialize(final Collection<T> collection) {
-	        return serializedJsonFrom(collection.toArray());
-	    }
-	    
-	    public String serializedJsonFrom(final Object[] dataObjects) {
-			return gson.toJson(dataObjects);
-		}
+	@Override
+	public String serialize(final Object result) {
+		return this.gson.toJson(result);
+	}
+
+	@Override
+	public String serializedJsonFrom(final Object[] dataObjects) {
+		return gson.toJson(dataObjects);
+	}
+
+
+	@Override
+	public String serialize(Collection<?> collection) {
+		return serializedJsonFrom(collection.toArray());
+	}
 }
